@@ -20,6 +20,7 @@ function getSeason(d) {
 	}
 	else {
 		try {
+			x = d.getTime()
 			month = d.getMonth()
 			return month == 0 || month == 1 || month == 11 ? 'winter' : month == 2 || month == 3 || month == 4 ? 'spring'
 				: month == 5 || month == 6 || month == 7 ? 'summer' : month == 8 || month == 9 || month == 10 ? 'fall' : false;
