@@ -83,19 +83,4 @@ class VigenereCipheringMachine {
 module.exports = {
 	VigenereCipheringMachine
 };
-let m = new VigenereCipheringMachine()
-let n = new VigenereCipheringMachine(false)
 
-// L == 79
-// T == 84 
-// E = 69 
-//console.log(('A'.charCodeAt() - 'J'.charCodeAt() + 65 + 26))
-//console.log('U'.charCodeAt() - 65)
-//console.log('J'.charCodeAt() - 65)
-//console.log('R'.charCodeAt())
-//console.log('8'.charCodeAt())
-////console.log(m.encrypt('Example of sequence: 1, 2, 3, 4.', 'lilkey')) //EIHQX SX DLLU!
-console.log(m.decrypt('UWJJW XAGWLNFM VNNNDXHVWWL :)', 'js')) //LEARN FRONTEND DEVELOPMENT :)'
-console.log(n.decrypt('UWJJW XAGWLNFM VNNNDXHVWWL :)', 'js')) //LEARN FRONTEND DEVELOPMENT :)'
-
-//console.log('LEARN FRONTEND DEVELOPMENT :)'.split('').reverse().join(''))
