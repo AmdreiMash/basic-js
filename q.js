@@ -1,17 +1,20 @@
-function deleteDigit(n) {
-	let result = 0
-	let nS = String(n)
-	//console.log(nS)
-
-	for (let i = 0; i < nS.length; i++) {
-		let x = nS.slice(0, i) + nS.slice(i + 1)
-		console.log(x)
-		x > result ? result = x : null;
+function getDNSStats(domains) {
+	let result = {}
+	let x = domains.map(e => '.' + e.split('.').reverse().join('.')).join(' ')
+	result[x.match(/\.\w+/)] = x.match(/\.\w+\./g).length
+	result[x.match(/\.\w+\.\w+/)] = x.match(/\.\w+\.\w+/g).length
+	if (x.match(/\.\w+\.\w+\.\w+/g)) {
+		result[x.match(/\.\w+\.\w+\.\w+/)] = x.match(/\.\w+\.\w+\.\w+/g).length
 	}
-	return +result
+
+	console.log(x.match(/\.\w+\.\w+\.\w+/g))
+
+
+	return result
 }
 
-console.log(deleteDigit(155))
 
-//console.log('133'.slice(0, -1) + '133'.slice(0))
 
+console.log(getDNSStats(['epam.com', 'info.epam.com']))
+
+//console.log(('.' + 'ru'))
