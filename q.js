@@ -1,20 +1,21 @@
-function getDNSStats(domains) {
-	let result = {}
-	let x = domains.map(e => '.' + e.split('.').reverse().join('.')).join(' ')
-	result[x.match(/\.\w+/)] = x.match(/\.\w+\./g).length
-	result[x.match(/\.\w+\.\w+/)] = x.match(/\.\w+\.\w+/g).length
-	if (x.match(/\.\w+\.\w+\.\w+/g)) {
-		result[x.match(/\.\w+\.\w+\.\w+/)] = x.match(/\.\w+\.\w+\.\w+/g).length
-	}
-
-	console.log(x.match(/\.\w+\.\w+\.\w+/g))
-
-
-	return result
+function encodeLine(str) {
+	let result = ''
+	str.split('').reduce((prev, e, index, arr) => {
+		if (!prev.length || prev[prev.length - 1] == e) {
+			prev.push(e)
+		} else {
+			result += result += (prev.length > 1 ? prev.length : '') + arr[index - 1]
+			prev = [e]
+		}
+		if (index + 1 == arr.length) {
+			result += (prev.length > 1 ? prev.length : '') + arr[index]
+		}
+		console.log(prev)
+		return prev
+	}, [])
+	return result.replace('1', '')
 }
 
+console.log(encodeLine('abbcca'))
+console.log([].length)
 
-
-console.log(getDNSStats(['epam.com', 'info.epam.com']))
-
-//console.log(('.' + 'ru'))
