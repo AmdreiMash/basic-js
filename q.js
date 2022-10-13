@@ -1,6 +1,7 @@
-function getEmailDomain(email) {
-	return email.match(/([@-]\w+\.)+com|([@-]\w+\.)+ru/g)[0].slice(1,)
+function isMAC48Address(n) {
+	return /[\da-f][\da-f]-[\da-f]+-[\da-f]+-[\da-f]+-[\da-f]+-[\da-f]+/i.test(n)
 }
 
 
-console.log(getEmailDomain('example-indeed@strange-example.com'))
+
+console.log(isMAC48Address('Z1-1B-63-84-45-E6'))
